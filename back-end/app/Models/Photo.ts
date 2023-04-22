@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, BelongsTo } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, BelongsTo, belongsTo } from '@ioc:Adonis/Lucid/Orm'
 import Job from './Job'
 
 export default class Photo extends BaseModel {
@@ -12,7 +12,7 @@ export default class Photo extends BaseModel {
   @column()
   public forJob: number
 
-  @BelongsTo(() => Job, {
+  @belongsTo(() => Job, {
     localKey: 'forJob'
   })
   public job: BelongsTo<typeof Job>

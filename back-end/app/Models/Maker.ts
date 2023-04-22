@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, HasMany } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
 import Quotation from './Quotation'
 
 export default class Maker extends BaseModel {
@@ -12,7 +12,7 @@ export default class Maker extends BaseModel {
   @column()
   public email: string
 
-  @HasMany(() => Quotation, {
+  @hasMany(() => Quotation, {
     foreignKey: 'forMaker'
   })
   public makers: HasMany<typeof Maker>

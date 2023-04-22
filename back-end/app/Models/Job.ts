@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, BelongsTo, HasMany } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, BelongsTo, HasMany, belongsTo, hasMany } from '@ioc:Adonis/Lucid/Orm'
 import Consumer from './Consumer'
 import Photo from './Photo'
 import Quotation from './Quotation'
@@ -26,17 +26,17 @@ export default class Job extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
 
-  @BelongsTo(() => Consumer, {
+  @belongsTo(() => Consumer, {
     localKey: 'createdBy'
   })
   public consumer: BelongsTo<typeof Consumer>
 
-  @HasMany(() => Photo, {
+  @hasMany(() => Photo, {
     foreignKey: 'forJob'
   })
   public photos: HasMany<typeof Photo>
 
-  @HasMany(() => Quotation, {
+  @hasMany(() => Quotation, {
     foreignKey: 'forJob'
   })
   public quotations: HasMany<typeof Quotation>

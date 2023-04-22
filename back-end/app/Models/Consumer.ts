@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, HasMany } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
 import Job from './Job'
 
 export default class Consumer extends BaseModel {
@@ -27,7 +27,7 @@ export default class Consumer extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
 
-  @HasMany(() => Job, {
+  @hasMany(() => Job, {
     foreignKey: 'createdBy'
   })
   public jobs: HasMany<typeof Job>

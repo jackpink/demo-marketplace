@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, BelongsTo } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, BelongsTo, belongsTo } from '@ioc:Adonis/Lucid/Orm'
 import Job from './Job'
 import Maker from './Maker'
 
@@ -25,12 +25,12 @@ export default class Quotation extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
 
-  @BelongsTo(() => Job, {
+  @belongsTo(() => Job, {
     localKey: 'forJob'
   })
   public job: BelongsTo<typeof Job>
 
-  @BelongsTo(() => Maker, {
+  @belongsTo(() => Maker, {
     localKey: 'forMaker'
   })
   public maker: BelongsTo<typeof Maker>
