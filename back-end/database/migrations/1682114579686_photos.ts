@@ -5,8 +5,10 @@ export default class Photos extends BaseSchema {
 
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
-      table.increments('id')
-      table.timestamps(true)
+      table.increments('id');
+      table.string("key", 510).notNullable();
+      table.integer('for_job').notNullable().references('id').inTable('jobs');
+      table.timestamps(true);
     })
   }
 
