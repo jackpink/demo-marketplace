@@ -25,21 +25,11 @@ Route.get('/api/', async () => {
 })
 
 Route.group(() =>  {
-  Route.resource('consumers', 'ConsumersController')
-}).as('app')
+  Route.get('/jobs', 'JobsController.index');
+  Route.post('/consumers', 'ConsumersController.store')
+  Route.post('/jobs', 'JobsController.store')
+  Route.post('/makers', 'MakersController.store')
+  Route.post('/quotation', 'QuotationsController.store')
+}).prefix('api')
 
-Route.group(() =>  {
-  Route.resource('jobs', 'JobsController')
-}).as('app')
-
-Route.group(() =>  {
-  Route.resource('makers', 'MakersController')
-}).as('app')
-
-Route.group(() =>  {
-  Route.resource('photos', 'PhotosController')
-}).as('app')
-
-Route.group(() =>  {
-  Route.resource('quotations', 'QuotationsController')
-}).as('app')
+// Photos APi added later
