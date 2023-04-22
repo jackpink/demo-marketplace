@@ -24,4 +24,22 @@ Route.get('/api/', async () => {
   return { hello: 'world' }
 })
 
-Route.resource('consumers', 'ConsumersController')
+Route.group(() =>  {
+  Route.resource('consumers', 'ConsumersController')
+}).as('app')
+
+Route.group(() =>  {
+  Route.resource('jobs', 'JobsController')
+}).as('app')
+
+Route.group(() =>  {
+  Route.resource('makers', 'MakersController')
+}).as('app')
+
+Route.group(() =>  {
+  Route.resource('photos', 'PhotosController')
+}).as('app')
+
+Route.group(() =>  {
+  Route.resource('quotations', 'QuotationsController')
+}).as('app')
