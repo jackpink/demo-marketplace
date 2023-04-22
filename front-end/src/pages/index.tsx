@@ -14,29 +14,27 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <div className={styles.container}>
           <h1 className={styles.title}>
-            Create <span className={styles.pinkSpan}>T3</span> App
+            Demo Marketplace
           </h1>
           <div className={styles.cardRow}>
             <Link
               className={styles.card}
-              href="https://create.t3.gg/en/usage/first-steps"
+              href="http://http://ec2-3-26-19-82.ap-southeast-2.compute.amazonaws.com/consumer"
               target="_blank"
             >
-              <h3 className={styles.cardTitle}>First Steps →</h3>
+              <h3 className={styles.cardTitle}>Consumer →</h3>
               <div className={styles.cardText}>
-                Just the basics - Everything you need to know to set up your
-                database and authentication.
+                Post a job so makers can view and make you an offer.
               </div>
             </Link>
             <Link
               className={styles.card}
-              href="https://create.t3.gg/en/introduction"
+              href="http://http://ec2-3-26-19-82.ap-southeast-2.compute.amazonaws.com/maker"
               target="_blank"
             >
-              <h3 className={styles.cardTitle}>Documentation →</h3>
+              <h3 className={styles.cardTitle}>Maker →</h3>
               <div className={styles.cardText}>
-                Learn more about Create T3 App, the libraries it uses, and how
-                to deploy it.
+                Search all available jobs and find a great match to quote your services on.
               </div>
             </Link>
           </div>
