@@ -8,7 +8,7 @@ export default class Jobs extends BaseSchema {
       table.increments('id');
       table.string("type", 255).notNullable();
       table.text("description",'longtext').notNullable();
-      table.float("budget", 8, 2).Nullable();
+      table.float("budget", 8, 2).nullable();
       table.integer('created_by').notNullable().references('id').inTable('consumers');
       table.timestamps(true);
     })
