@@ -1,12 +1,13 @@
 import Link from "next/link";
-
+import styles from "./job.module.css";
 
 const Job = ({ job }) => {
-    const link = "http://http://ec2-3-26-19-82.ap-southeast-2.compute.amazonaws.com/job/" + String(job.id)
+    const link = "/job/" + String(job.id)
     return(
-        <Link href={link} target="_blank">
-            <p>{job.type}</p>
+        <Link className={styles.jobcard} href={link} target="_blank" >
+            <p className={styles.cardTitle} >{job.type}</p>
             <p>{job.description}</p>
+            <span>{job.address}</span>
         </Link>
     )
 }

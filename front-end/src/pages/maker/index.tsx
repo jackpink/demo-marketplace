@@ -2,7 +2,7 @@ import { type NextPage } from "next";
 import styles from "./index.module.css";
 import { useQuery } from "react-query";
 import axios from 'axios'
-import Job from "~/components/Job";
+import JobSearch from "~/components/JobSearch";
 
 // @ts-nocheck
 interface Job {
@@ -25,17 +25,7 @@ const MakerPage: NextPage = () => {
     // @ts-ignore
     console.log(query.data.data.jobs)
     return (
-      <main className={styles.main}>
-        <h1>List All Jobs</h1>
-        
-        {query.data.data.jobs?.map((job) => (
-          <Job job={job} />
-        ))}
-
-  
-      <h1>Filter</h1>
-
-      </main>
+        <JobSearch jobs={query.data.data.jobs} />
     );
 };
 }

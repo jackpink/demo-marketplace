@@ -1,11 +1,4 @@
-.main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background-image: linear-gradient(to bottom, #cbf0fd, #8abfd6);
-}
+
 
 .container {
   width: 100%;
