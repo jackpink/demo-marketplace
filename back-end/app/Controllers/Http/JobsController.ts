@@ -1,14 +1,9 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Job from 'App/Models/Job';
-import Consumer from 'App/Models/Consumer';
 
 export default class JobsController {
   public async index({ response }: HttpContextContract) {
     const jobs = await Job.query().preload('consumer');
-    /*for (const job of jobs) {
-      const consumer = await Consumer.findByOrFail('id',job.createdBy);
-      //job.consumer = consumer;
-    };*/
 
     return response.json({ jobs });
   }
@@ -32,8 +27,7 @@ export default class JobsController {
   public async show({response, params}: HttpContextContract) {
     const job = await Job.findByOrFail('id', params.id)
     await job.preload('consumer');
-    /*const consumer = await Consumer.findByOrFail('id',job.createdBy)
-    job.consumer = consumer;*/
+    
     return response.json({ job });
   }
 
