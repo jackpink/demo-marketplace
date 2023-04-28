@@ -30,9 +30,9 @@ export default class JobsController {
   }
 
   public async show({response, params}: HttpContextContract) {
-    const job = await Job.findByOrFail('id', params.id);
-    const consumer = await Consumer.findByOrFail('id',job.createdBy)
-    job.consumer = consumer;
+    const job = await Job.findByOrFail('id', params.id).preload('consumer')
+    /*const consumer = await Consumer.findByOrFail('id',job.createdBy)
+    job.consumer = consumer;*/
     return response.json({ job });
   }
 
