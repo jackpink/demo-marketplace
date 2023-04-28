@@ -15,7 +15,7 @@ export default class Maker extends BaseModel {
   @hasMany(() => Quotation, {
     foreignKey: 'forMaker'
   })
-  public makers: HasMany<typeof Maker>
+  public quotations: HasMany<typeof Quotation>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
