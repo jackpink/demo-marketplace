@@ -26,6 +26,7 @@ Route.get('/api/', async () => {
 
 Route.group(() =>  {
   Route.get('/jobs', 'JobsController.index');
+  Route.get('/jobs/:id', 'JobsController.show')
   Route.post('/consumers', 'ConsumersController.store')
   Route.post('/jobs', 'JobsController.store')
   Route.post('/makers', 'MakersController.store')
