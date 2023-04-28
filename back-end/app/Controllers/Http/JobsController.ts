@@ -4,11 +4,12 @@ import Consumer from 'App/Models/Consumer';
 
 export default class JobsController {
   public async index({ response }: HttpContextContract) {
-    const jobs = await Job.all();
-    for (const job of jobs) {
+    const jobs = await Job.query().preload('consumer');
+    /*for (const job of jobs) {
       const consumer = await Consumer.findByOrFail('id',job.createdBy);
-      job.consumer = consumer;
-    };
+      //job.consumer = consumer;
+    };*/
+
     return response.json({ jobs });
   }
 
