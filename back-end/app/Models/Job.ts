@@ -27,7 +27,7 @@ export default class Job extends BaseModel {
   public updatedAt: DateTime
 
   @belongsTo(() => Consumer, {
-    localKey: 'createdBy'
+    foreignKey: 'createdBy'
   })
   public consumer: BelongsTo<typeof Consumer>
 
